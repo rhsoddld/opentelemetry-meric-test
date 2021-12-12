@@ -1,0 +1,4 @@
+docker run -d \
+-p 9090:9090 \
+-v /c/Users/rhsod/Documents/GitHub/opentelemetry-meric-test/prometheus.yml:/etc/prometheus/prometheus.yml \
+prom/prometheus
