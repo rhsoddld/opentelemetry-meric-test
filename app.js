@@ -4,9 +4,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || '8080';
 
-const { countColorRequests } = require("./monitoring");
-
-app.use(countColorRequests());
+const { countColorRequests } = require("./monitoring-exporter-prometheus");
 
 app.use(function(req, res, next) {
   // ランダムで色を選ぶ
@@ -14,6 +12,10 @@ app.use(function(req, res, next) {
   res.locals.color = color[Math.floor(Math.random() * color.length)];
   next();
 });
+
+
+app.use(countColorRequests());
+
 
 app.get('/', (req, res, next) => {
   res.send(res.locals.color);
