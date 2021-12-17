@@ -1,7 +1,8 @@
 'use strict';
 
-const { MeterProvider } = require('@opentelemetry/metrics');
+//const { MeterProvider } = require('@opentelemetry/metrics');
 const { PrometheusExporter } = require('@opentelemetry/exporter-prometheus');
+const { MeterProvider }  = require('@opentelemetry/sdk-metrics-base');
 
 // PrometheusExporter Preparation
 // const prometheusPort = PrometheusExporter.DEFAULT_OPTIONS.port          // port: 9464
